@@ -1,35 +1,21 @@
 import React, { useState } from "react";
 
-export default function About() {
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-    border: '1px solid black'
-  });
+export default function About(props) {
+  // const [myStyle, setMyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  //   border: '1px solid black'
+  // });
 
-  const [btnTxt, setBtnTxt] = useState('Enable dark Mode')
+  let myStyle = {
+    color: props.mode === 'dark' ? 'white' : '#042743',
+    backgroundColor: props.mode === 'dark' ? 'rgb(36 74 104)' : 'white'
+  }
 
-  const toggleStyle = () => {
-    if (myStyle.color === "black") {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-        border: '1px solid white'
-      });
-      setBtnTxt('Enable light Mode');
-    }else{
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-        border: '1px solid black'
-      });
-      setBtnTxt('Enable dark Mode');
-    }
-  };
 
   return (
-    <div className="container" style={myStyle}>
-      <h2 className="my-3">About us</h2>
+    <div className="container" >
+      <h2 className="my-3" style={{color: props.mode === 'dark' ? 'white' : '#042743'}}>About us</h2>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item" style={myStyle}>
           <h2 className="accordion-header" id="headingOne">
@@ -127,11 +113,6 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="container my-3">
-        <button type="button" onClick={toggleStyle} className="btn btn-primary">
-          {btnTxt}
-        </button>
       </div>
     </div>
   );

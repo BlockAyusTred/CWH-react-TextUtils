@@ -47,9 +47,9 @@ function App() {
         <Alert alert={alert} />
         <div className="container my-3">
           {/* <Switch>
-            <Route exact path="/about">
-              <About />
-            </Route>
+            <Route exact path="/about"> */}
+              {/* <About mode={mode}/> */}
+            {/* </Route>
             <Route exact path="/"> */}
               <Textform
                 showAlert={showAlert}
